@@ -12,7 +12,6 @@ export default function CustomerToolbar() {
   const { state, actions } = useCustomerContext();
 
   const onInputChange = async (customerId) => {
-    console.debug("onInputChange :: customerId :: ", customerId);
     actions.setCustomerById(customerId);
   };
 

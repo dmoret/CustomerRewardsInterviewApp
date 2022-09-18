@@ -25,7 +25,6 @@ export const CustomerProvider = (props) => {
    * @returns res array    All or single customer
    */
   const getCustomers = async (id = "") => {
-    console.log("CustomerProvider ::  getCustomers .... ");
     return fetch(`${process.env.REACT_APP_API_URL}/customers/${id}`).then(async (response) => {
       let res = await handleResponse(response);
       res = Array.isArray(res) ? res : [res];
@@ -59,7 +58,6 @@ export const CustomerProvider = (props) => {
   useEffect(() => {
     if (customers.length) {
       const getCustomerRewards = () => {
-        console.log("CustomerProvider :: getCustomerRewards :: customers :: ", customers);
         if (customers.length) {
           const customerRewardsResult = customers.map((customer) => {
             const totalSpent = customer.totalSpent / 100;
@@ -111,13 +109,9 @@ export const CustomerProvider = (props) => {
   // Get all customers or single customer by ID
   useEffect(() => {
     (async () => {
-      //await getCustomers(customerId);
-      console.debug("parseInt(customerId) :: ", parseInt(customerId));
       if (parseInt(customerId)) {
-        console.debug("CustomerProvider :: useEffect :: state.customerId :: ", customerId);
         await getCustomers(customerId);
       } else {
-        console.debug("CustomerProvider :: useEffect :: state.customerId :: ", customerId);
         await getCustomers();
       }
     })();
