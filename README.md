@@ -1,15 +1,26 @@
+# Customer Rewards App (Interview)
+
+🚀 This is a customer rewards app sample for an interview
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+In the project directory, start by running the API mockup server:
+
+### `npx json-server --watch src/db.json`
+
+it will run on port 3000 by default, then run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You will be asked to switch the port to 3001, type in 'y' for yes.
+
+### `y`
+
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.

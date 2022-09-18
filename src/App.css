@@ -1,3 +1,10 @@
+/**
+* Customer Rewards App Stylesheet
+* @version 0.1
+* @author  Daniel Moret
+*/
+
+/* Globals */
 .App {
   text-align: center;
 }
@@ -14,7 +21,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgb(40, 44, 52);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +35,85 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Containers */
+.container {
+  padding: 1rem;
+}
+
+/* Customer Table Toolbar */
+.customer-toolbar {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* Forms */
+label {
+  font-size: 0.8rem;
+}
+
+/* Tables */
+table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  font: normal 0.8rem Arial, sans-serif;
+  outline: 1px solid rgb(221, 238, 238);
+}
+table thead th {
+  background-color: rgb(71, 182, 132);
+  border: solid 1px rgb(221, 238, 238);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+table tbody td {
+  border: solid 1px #ddeeee;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+table tbody td.customer-name {
+  text-align: left;
+}
+table tbody td.total-spent,
+table tbody td.reward-points {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+table tbody td a {
+  padding: 7px 11px;
+  background-color: #eee;
+  color: #222;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  -ms-transition: color 0.45s cubic-bezier(0.25, 1, 0.33, 1),
+    background-color 0.45s cubic-bezier(0.25, 1, 0.33, 1);
+  -webkit-transition: color 0.45s cubic-bezier(0.25, 1, 0.33, 1),
+    background-color 0.45s cubic-bezier(0.25, 1, 0.33, 1);
+  transition: color 0.45s cubic-bezier(0.25, 1, 0.33, 1),
+    background-color 0.45s cubic-bezier(0.25, 1, 0.33, 1);
+}
+table tbody td a:hover {
+  background-color: rgb(71, 182, 132);
+  color: #fff;
+  transition: all 0.2ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Helpers */
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
 }

@@ -1,0 +1,58 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "firstName": "Jean-Claude",
+      "lastName": "Van Damme",
+      "rewardPoints": 0,
+      "totalSpent": 12050,
+      "createdAt": 1650508814,
+      "updatedAt": 1650508814
+    },
+    {
+      "id": 2,
+      "firstName": "Edward",
+      "lastName": "Woodward",
+      "rewardPoints": 0,
+      "totalSpent": 15056,
+      "createdAt": 1650681614,
+      "updatedAt": 1650681614
+    },
+    {
+      "id": 3,
+      "firstName": "Thurl",
+      "lastName": "Ravenscroft",
+      "rewardPoints": 0,
+      "totalSpent": 9000,
+      "createdAt": 1650854414,
+      "updatedAt": 1650854414
+    },
+    {
+      "id": 4,
+      "firstName": "Harry",
+      "lastName": "Belafonte",
+      "rewardPoints": 0,
+      "totalSpent": 5120,
+      "createdAt": 1651545614,
+      "updatedAt": 1651545614
+    },
+    {
+      "id": 5,
+      "firstName": "Leonardo",
+      "lastName": "DiCaprio",
+      "rewardPoints": 0,
+      "totalSpent": 50000,
+      "createdAt": 1654483214,
+      "updatedAt": 1654483214
+    },
+    {
+      "id": 6,
+      "firstName": "Dick",
+      "lastName": "Van Dyke",
+      "rewardPoints": 0,
+      "totalSpent": 4000,
+      "createdAt": 1655088014,
+      "updatedAt": 1655088014
+    }
+  ]
+}
