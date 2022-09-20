@@ -7,7 +7,7 @@
 import React from "react";
 import { CustomerProvider } from "providers/CustomerProvider";
 import CustomerRewards from "components/modules/CustomerRewards";
-import "./App.css";
+import "styles/App.css";
 
 export default function App() {
   return (

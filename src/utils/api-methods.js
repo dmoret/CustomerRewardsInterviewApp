@@ -4,7 +4,7 @@
  * @author Daniel Moret
  */
 
-import { UserError } from "./response-types";
+import { UserError } from "./api-response-types";
 
 // Handle API response
 export const handleResponse = (response) => {

@@ -5,7 +5,7 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { handleResponse } from "api/methods";
+import { handleResponse } from "utils/api-methods";
 import { CustomerContext } from "./context";
 export * from "./context";
 
