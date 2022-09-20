@@ -13,8 +13,8 @@ export const CustomerContext = createContext({
     customerRewards: [],
   },
   actions: {
-    getCustomers: (customerId) => Promise.resolve([]),
-    getCustomerRewards: () => null,
+    getAllCustomers: () => Promise.resolve([]),
+    getSingleCustomer: (customerId) => Promise.resolve([]),
     setCustomerById: (customerId) => null,
   },
 });
