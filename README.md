@@ -1,4 +1,4 @@
-# Customer Rewards App (Interview)
+# Interview Customer Rewards App
 
 🚀 This is a customer rewards app sample for an interview
 
@@ -8,19 +8,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Getting Started
 
-In the project directory, start by running the API mockup server:
+In the project directory, start by creating your own environment file by copying .env.sample to .env with your own values.
+For this interview app, the sample already has the correct values, all you need to do is rename it to .env
+This is to simulate a real world environment setup.
 
-### `npx json-server --watch src/db.json`
+After your .env file has been created, run the API mockup server:
 
-it will run on port 3000 by default, then run:
+### `npm run server`
+
+it will run on port 3001 by default, then open a new terminal and run:
 
 ### `npm start`
 
-You will be asked to switch the port to 3001, type in 'y' for yes.
-
-### `y`
-
-Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
