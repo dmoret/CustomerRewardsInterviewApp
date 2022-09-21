@@ -8,14 +8,17 @@ import { createContext, useContext } from "react";
 
 export const CustomerContext = createContext({
   state: {
-    customerId: "",
     customers: [],
+    customersDateRange: { label: "", value: 0 },
+    customerId: "",
     customerRewards: [],
   },
   actions: {
     getAllCustomers: () => Promise.resolve([]),
-    getSingleCustomer: (customerId) => Promise.resolve([]),
+    getSingleCustomer: () => Promise.resolve([]),
+    getCustomers: () => Promise.resolve([]),
     setCustomerById: (customerId) => null,
+    setCustomersByDateRange: (customersDateRange) => null,
   },
 });
 

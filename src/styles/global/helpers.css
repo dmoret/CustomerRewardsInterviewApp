@@ -1,0 +1,15 @@
+/**
+* Helpers Stylesheet
+* @version 0.1
+* @author  Daniel Moret
+*/
+
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}

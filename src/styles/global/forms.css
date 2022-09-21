@@ -1,0 +1,13 @@
+/**
+* Forms Stylesheet
+* @version 0.1
+* @author  Daniel Moret
+*/
+
+label {
+  font-size: 0.8rem;
+}
+
+input {
+  padding: 8px;
+}

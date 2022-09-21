@@ -7,12 +7,14 @@
 import React, { useState, useEffect } from "react";
 import CustomerService from "services/customers";
 import { CustomerContext } from "./context";
+import { CUSTOMER_DATE_RANGE } from "utils/constants";
 export * from "./context";
 
 export const CustomerProvider = (props) => {
   const { children } = props;
-  const [customerId, setCustomerId] = useState("");
   const [customers, setCustomers] = useState([]);
+  const [customersDateRange, setCustomersDateRange] = useState({ value: 3, label: "3 Months" });
+  const [customerId, setCustomerId] = useState("");
   const [customerRewards, setCustomerRewards] = useState([]);
 
   /**
@@ -20,7 +22,7 @@ export const CustomerProvider = (props) => {
    * @returns void
    */
   const getAllCustomers = async () => {
-    const result = await CustomerService.getCustomers();
+    const result = await CustomerService.getCustomers(customersDateRange);
     setCustomers(result);
   };
 
@@ -29,9 +31,54 @@ export const CustomerProvider = (props) => {
    * @param customerId string  Required. The customer ID coming from the field input
    * @returns void
    */
-  const getSingleCustomer = async (customerId) => {
+  const getSingleCustomer = async () => {
     const result = await CustomerService.getCustomers(customerId);
     setCustomers(result);
+  };
+
+  /**
+   * Get All or Single Customer
+   * @returns void
+   */
+  const getCustomers = async () => {
+    if (parseInt(customerId)) {
+      await getSingleCustomer();
+    } else {
+      await getAllCustomers();
+    }
+  };
+
+  /**
+   * Set Customers Date Range
+   * default is set to 3 months
+   * @param dateRange integer  Required. The date range in months
+   * @returns void
+   */
+  const setCustomersByDateRange = (dateRange) => {
+    const month = parseInt(dateRange.value);
+
+    if (isNaN(month)) {
+      setCustomersDateRange({
+        value: CUSTOMER_DATE_RANGE,
+        label: `${CUSTOMER_DATE_RANGE} Months`,
+      });
+    } else {
+      let label = dateRange.label;
+
+      switch (month) {
+        case 0:
+          label = "All Months";
+          break;
+        case 1:
+          label = `${month} Month`;
+          break;
+        default:
+          label = dateRange.label;
+          break;
+      }
+
+      setCustomersDateRange({ value: month, label: label });
+    }
   };
 
   /**
@@ -48,13 +95,15 @@ export const CustomerProvider = (props) => {
   // Set context value
   const value = {
     state: {
-      customerId,
       customers,
+      customersDateRange,
+      customerId,
       customerRewards,
     },
     actions: {
       getAllCustomers,
       getSingleCustomer,
+      setCustomersByDateRange,
       setCustomerById,
     },
   };
@@ -62,12 +111,10 @@ export const CustomerProvider = (props) => {
   // Get all customers or single customer by ID
   useEffect(() => {
     (async () => {
-      if (parseInt(customerId)) {
-        await getSingleCustomer(customerId);
-      } else {
-        await getAllCustomers();
-      }
+      getCustomers();
     })();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [customerId]);
 
   // Get and calculate customer rewards from loaded customers
@@ -77,6 +124,17 @@ export const CustomerProvider = (props) => {
       setCustomerRewards(rewards);
     }
   }, [customers]);
+
+  // Get customers on customer date range change
+  useEffect(() => {
+    (async () => {
+      if (customerRewards.length) {
+        getCustomers();
+      }
+    })();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [customersDateRange]);
 
   return <CustomerContext.Provider value={value}>{children}</CustomerContext.Provider>;
 };

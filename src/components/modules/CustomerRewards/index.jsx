@@ -8,7 +8,7 @@
 import React from "react";
 import { useCustomerContext } from "providers/CustomerProvider";
 import CustomerRewardsTable from "components/modules/CustomerRewards/CustomerRewardsTable";
-import LoadingPlaceholder from "components/common/loading-placeholder";
+import LoadingPlaceholder from "components/common/LoadingPlaceholder";
 import CustomerToolbar from "./CustomerToolbar";
 
 export default function CustomerRewards() {

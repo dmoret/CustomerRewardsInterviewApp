@@ -1,2 +1,3 @@
+export const CUSTOMER_DATE_RANGE = 3;
 export const REWARD_PRICE_FIRST_TIER = 50;
 export const REWARD_PRICE_SECOND_TIER = 100;

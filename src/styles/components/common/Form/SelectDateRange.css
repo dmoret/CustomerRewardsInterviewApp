@@ -1,0 +1,10 @@
+/**
+* SelectDateRange Stylesheet
+* @version 0.1
+* @author  Daniel Moret
+*/
+
+#select-date-range {
+  display: inline-block;
+  width: 200px;
+}

@@ -7,14 +7,55 @@
 import { REWARD_PRICE_FIRST_TIER, REWARD_PRICE_SECOND_TIER } from "utils/constants";
 import { handleResponse } from "utils/api-methods";
 
+const convertMonthToUnixTimestamp = (month) => {
+  var date = new Date();
+  var currentMonth = date.getMonth();
+  date.setMonth(date.getMonth() - month);
+
+  // If still in same month, set date to last day of previous month
+  if (date.getMonth() === currentMonth) {
+    date.setDate(0);
+  }
+
+  date.setHours(0, 0, 0, 0);
+
+  // Get the time value in milliseconds and convert to seconds
+  const timestamp = (date / 1000) | 0;
+
+  return timestamp;
+};
+
 /**
  * Get all customers
  * mock up API call, no auth set
- * @param   id  integer  Optional. Customer ID
- * @returns res array    All or single customer
+ * @param customersDateRangeMonths integer  Required. The date range in months of customer data
+ * @param customerId               integer  Optional. The customer ID
+ * @returns res array  All or single customer
  */
-const getCustomers = async (id = "") => {
-  return fetch(`${process.env.REACT_APP_API_URL}/customers/${id}`).then(async (response) => {
+const getCustomers = async (...args) => {
+  let apiUrl = `${process.env.REACT_APP_API_URL}/customers`;
+  let customerId = 0;
+  let customersDateRangeMonths = 0;
+
+  // Check if passing date range or customer ID
+  if (!isNaN(args[0].value)) {
+    customersDateRangeMonths = args[0].value;
+  } else {
+    customerId = args[0];
+  }
+
+  // Set customer ID in api url
+  if (customerId) {
+    apiUrl += `/${customerId}`;
+  }
+
+  // Set unix timestamp from customers date range ( integer in months )
+  if (customersDateRangeMonths) {
+    const timestamp = convertMonthToUnixTimestamp(customersDateRangeMonths);
+    apiUrl += `?createdAt_gte=${timestamp}`;
+  }
+
+  return fetch(apiUrl).then(async (response) => {
     const res = await handleResponse(response);
     return Array.isArray(res) ? res : [res];
   });

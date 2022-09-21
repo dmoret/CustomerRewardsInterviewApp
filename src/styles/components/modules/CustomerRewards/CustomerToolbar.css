@@ -1,0 +1,12 @@
+/*  */
+/**
+* CustomerToolbar Stylesheet
+* @version 0.1
+* @author  Daniel Moret
+*/
+#customer-toolbar-form {
+  margin-bottom: 1rem;
+}
+#customer-toolbar-form label {
+  margin: 0 0.5rem;
+}
