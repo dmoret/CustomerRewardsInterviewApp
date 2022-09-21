@@ -128,9 +128,7 @@ export const CustomerProvider = (props) => {
   // Get customers on customer date range change
   useEffect(() => {
     (async () => {
-      if (customerRewards.length) {
-        getCustomers();
-      }
+      getCustomers();
     })();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
