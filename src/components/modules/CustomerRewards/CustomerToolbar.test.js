@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
-import CustomerToolbar from "components/modules/CustomerRewards/CustomerToolbar";
 import userEvent from "@testing-library/user-event";
 import { CustomerProvider } from "providers/CustomerProvider";
+import CustomerToolbar from "components/modules/CustomerRewards/CustomerToolbar";
 
 const setup = () => {
   const user = userEvent.setup();
