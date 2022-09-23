@@ -9,7 +9,7 @@ import { createContext, useContext } from "react";
 export const CustomerContext = createContext({
   state: {
     customers: [],
-    customersDateRange: { label: "", value: 0 },
+    customersDateRange: "",
     customerId: "",
     customerRewards: [],
   },

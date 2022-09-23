@@ -38,8 +38,8 @@ const getCustomers = async (...args) => {
   let customersDateRangeMonths = 0;
 
   // Check if passing date range or customer ID
-  if (!isNaN(args[0].value)) {
-    customersDateRangeMonths = args[0].value;
+  if (!isNaN(args[0].month)) {
+    customersDateRangeMonths = args[0].month;
   } else {
     customerId = args[0];
   }

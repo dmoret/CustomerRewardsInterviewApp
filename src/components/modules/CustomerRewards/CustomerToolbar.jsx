@@ -13,7 +13,9 @@ import "styles/components/modules/CustomerRewards/CustomerToolbar.css";
 export default function CustomerToolbar() {
   const { state, actions } = useCustomerContext();
 
-  const onInputCustomerIDChange = (customerId) => {
+  const handleOnChange = (event) => {
+    const customerId = event.target.value;
+    console.debug("handleOnChange :: customerId :: ", customerId);
     actions.setCustomerById(customerId);
   };
 
@@ -21,16 +23,15 @@ export default function CustomerToolbar() {
 
   return (
     <form id="customer-toolbar-form">
-      <label>
-        Customer ID#:
-        <input
-          name="customer-id"
-          type="text"
-          value={state.customerId}
-          onInput={(event) => onInputCustomerIDChange(event.target.value)}
-          onFocus={onHandleFocus}
-        />
-      </label>
+      <label htmlFor="customer-id">Customer ID#:</label>
+      <input
+        id="customer-id"
+        name="customer-id"
+        type="text"
+        value={state.customerId}
+        onChange={handleOnChange}
+        onFocus={onHandleFocus}
+      />
 
       <SelectDateRange />
     </form>

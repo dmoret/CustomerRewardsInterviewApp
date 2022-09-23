@@ -13,7 +13,10 @@ export * from "./context";
 export const CustomerProvider = (props) => {
   const { children } = props;
   const [customers, setCustomers] = useState([]);
-  const [customersDateRange, setCustomersDateRange] = useState({ value: 3, label: "3 Months" });
+  const [customersDateRange, setCustomersDateRange] = useState({
+    value: CUSTOMER_DATE_RANGE,
+    label: `${CUSTOMER_DATE_RANGE} Months`,
+  });
   const [customerId, setCustomerId] = useState("");
   const [customerRewards, setCustomerRewards] = useState([]);
 
@@ -22,7 +25,7 @@ export const CustomerProvider = (props) => {
    * @returns void
    */
   const getAllCustomers = async () => {
-    const result = await CustomerService.getCustomers(customersDateRange);
+    const result = await CustomerService.getCustomers({ month: customersDateRange.value });
     setCustomers(result);
   };
 
@@ -54,8 +57,8 @@ export const CustomerProvider = (props) => {
    * @param dateRange integer  Required. The date range in months
    * @returns void
    */
-  const setCustomersByDateRange = (dateRange) => {
-    const month = parseInt(dateRange.value);
+  const setCustomersByDateRange = (month) => {
+    console.log("setCustomersByDateRange :: month :: ", month);
 
     if (isNaN(month)) {
       setCustomersDateRange({
@@ -63,7 +66,7 @@ export const CustomerProvider = (props) => {
         label: `${CUSTOMER_DATE_RANGE} Months`,
       });
     } else {
-      let label = dateRange.label;
+      let label;
 
       switch (month) {
         case 0:
@@ -73,7 +76,7 @@ export const CustomerProvider = (props) => {
           label = `${month} Month`;
           break;
         default:
-          label = dateRange.label;
+          label = `${month} Months`;
           break;
       }
 
@@ -88,7 +91,7 @@ export const CustomerProvider = (props) => {
    * @returns void
    */
   const setCustomerById = (customerId) => {
-    customerId = parseInt(customerId);
+    console.log("setCustomerById :: customerId :: ", customerId);
     isNaN(customerId) ? setCustomerId("") : setCustomerId(customerId);
   };
 
@@ -111,6 +114,7 @@ export const CustomerProvider = (props) => {
   // Get all customers or single customer by ID
   useEffect(() => {
     (async () => {
+      console.log("*** useEffect :: customerId updated :: ", customerId);
       getCustomers();
     })();
 

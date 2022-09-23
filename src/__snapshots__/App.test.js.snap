@@ -11,19 +11,51 @@ exports[`Matches snapshot match the snapshot 1`] = `
       <h2>
         Customer Rewards
       </h2>
-      <div
-        class="customer-toolbar"
+      <form
+        id="customer-toolbar-form"
       >
-        <form>
-          <label>
-            Customer ID#:
-            <input
-              type="text"
-              value=""
-            />
-          </label>
-        </form>
-      </div>
+        <label
+          for="customer-id"
+        >
+          Customer ID#:
+        </label>
+        <input
+          id="customer-id"
+          name="customer-id"
+          type="text"
+          value=""
+        />
+        <label
+          for="select-date-range"
+        >
+          Date Range:
+        </label>
+        <select
+          id="select-date-range"
+          name="select-date-range"
+        >
+          <option
+            value="1"
+          >
+            1 Month
+          </option>
+          <option
+            value="3"
+          >
+            3 Months
+          </option>
+          <option
+            value="6"
+          >
+            6 Months
+          </option>
+          <option
+            value="0"
+          >
+            All Months
+          </option>
+        </select>
+      </form>
       <div>
         <p>
           Loading...
