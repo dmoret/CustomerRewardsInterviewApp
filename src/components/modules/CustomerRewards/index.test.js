@@ -80,7 +80,7 @@ describe("Compenent :: CustomerRewards", () => {
     });
   });
 
-  test("customer total spent has rendered into table", async () => {
+  test("Customer total spent has rendered into table", async () => {
     const { getByRole } = setup();
 
     await waitFor(() => {
@@ -88,7 +88,7 @@ describe("Compenent :: CustomerRewards", () => {
     });
   });
 
-  test("customer reward points has rendered into table", async () => {
+  test("Customer reward points has rendered into table", async () => {
     const { getByRole } = setup();
 
     await waitFor(() => {
@@ -96,7 +96,7 @@ describe("Compenent :: CustomerRewards", () => {
     });
   });
 
-  test("customer created at has rendered into table", async () => {
+  test("Customer created at has rendered into table", async () => {
     const { getByRole } = setup();
 
     await waitFor(() => {
@@ -104,7 +104,7 @@ describe("Compenent :: CustomerRewards", () => {
     });
   });
 
-  test("customer updated at has rendered into table", async () => {
+  test("Customer updated at has rendered into table", async () => {
     const { getByRole } = setup();
 
     await waitFor(() => {
