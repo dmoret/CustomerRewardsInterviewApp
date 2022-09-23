@@ -58,8 +58,6 @@ export const CustomerProvider = (props) => {
    * @returns void
    */
   const setCustomersByDateRange = (month) => {
-    console.log("setCustomersByDateRange :: month :: ", month);
-
     if (isNaN(month)) {
       setCustomersDateRange({
         value: CUSTOMER_DATE_RANGE,
@@ -91,7 +89,6 @@ export const CustomerProvider = (props) => {
    * @returns void
    */
   const setCustomerById = (customerId) => {
-    console.log("setCustomerById :: customerId :: ", customerId);
     isNaN(customerId) ? setCustomerId("") : setCustomerId(customerId);
   };
 
@@ -114,7 +111,6 @@ export const CustomerProvider = (props) => {
   // Get all customers or single customer by ID
   useEffect(() => {
     (async () => {
-      console.log("*** useEffect :: customerId updated :: ", customerId);
       getCustomers();
     })();
 

@@ -15,7 +15,6 @@ export default function CustomerToolbar() {
 
   const handleOnChange = (event) => {
     const customerId = event.target.value;
-    console.debug("handleOnChange :: customerId :: ", customerId);
     actions.setCustomerById(customerId);
   };
 
