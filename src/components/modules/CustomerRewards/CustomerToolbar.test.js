@@ -1,5 +1,5 @@
 /**
- * Customer Toolbar Tests
+ * CustomerToolbar Tests
  * @version 0.1
  * @author Daniel Moret
  * */

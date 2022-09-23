@@ -5,11 +5,10 @@
  * */
 
 import React from "react";
-import { within, render, queryByAttribute } from "@testing-library/react";
+import { within, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SelectDateRange from "./SelectDateRange";
 
-//const getById = queryByAttribute.bind(null, "id");
 const setup = () => {
   const user = userEvent.setup();
   const utils = render(<SelectDateRange />);
