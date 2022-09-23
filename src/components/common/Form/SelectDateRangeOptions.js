@@ -1,4 +1,4 @@
-export const SelectDateRangeOptions = [
+const SelectDateRangeOptions = [
   {
     value: 1,
     label: "1 Month",
@@ -17,6 +17,4 @@ export const SelectDateRangeOptions = [
   },
 ];
 
-export default {
-  SelectDateRangeOptions,
-};
+export { SelectDateRangeOptions };

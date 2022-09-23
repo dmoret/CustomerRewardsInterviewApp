@@ -1,3 +1,9 @@
+/**
+ * Customer Rewards Tests
+ * @version 0.1
+ * @author Daniel Moret
+ * */
+
 import { render, screen, act, waitFor, fireEvent } from "@testing-library/react";
 import App from "App";
 import { CustomerProvider } from "providers/CustomerProvider";

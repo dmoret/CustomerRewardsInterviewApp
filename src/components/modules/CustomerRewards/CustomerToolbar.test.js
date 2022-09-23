@@ -1,3 +1,9 @@
+/**
+ * Customer Toolbar Tests
+ * @version 0.1
+ * @author Daniel Moret
+ * */
+
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CustomerProvider } from "providers/CustomerProvider";
